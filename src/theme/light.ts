@@ -1,12 +1,17 @@
-const primary = {
-  primary100: "#F4F300",
-  primary200: "#F40000",
-  primary300: "#F42343",
-};
+import { CustomTheme } from "../types/theme";
 
-const lightTheme = {
-  color: {
-    ...primary,
+export const lightTheme: CustomTheme = {
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#3f51b5",
+    },
+    secondary: {
+      main: "#f50057",
+    },
+    background: {
+      default: "#0FF",
+    },
   },
 };
 

@@ -1,6 +1,5 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 
-export const Container = styled.div`
-  color: ${({ theme }) => theme.colors.primary100};
-  background-color: ${({ theme }) => theme.colors.primary200};
+export const Container = styled("div")`
+  background-color: ${({ theme }) => theme.palette.background.default};
 `;
