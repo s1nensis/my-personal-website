@@ -1,12 +1,15 @@
+const primary = {
+  primary100: "#E6F6FF",
+  primary200: "#BAE3FF",
+  primary300: "#7CC4FA",
+};
+
 export const lightTheme = {
   mode: "light",
-  color: {
+  colors: {
     background: "#CCC",
-    primary: {
-      primary: {
-        main: "#00F",
-      },
-    },
+    ...primary,
+    text: "#000",
   },
 };
 

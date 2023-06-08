@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, useState, useContext, useEffect } from "react";
 import { ThemeProvider as SThemeProvider } from "styled-components";
-import { ITheme, theme } from "../../theme";
+import { ITheme, theme as customTheme } from "../../theme";
 
 interface ThemeContextProps {
-  currentTheme: ITheme;
+  theme: ITheme;
   toggleTheme: () => void;
 }
 
@@ -13,31 +13,34 @@ interface ThemeProviderProps {
 }
 
 const ThemeContext = createContext<ThemeContextProps>({
-  currentTheme: theme.dark,
+  theme: customTheme.dark,
   toggleTheme: () => {},
 });
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState<ITheme>(theme.dark);
+  const storedTheme = localStorage.getItem("theme");
+  const [theme, setTheme] = useState<ITheme>(
+    storedTheme === "dark" ? customTheme.dark : customTheme.light,
+  );
 
   const toggleTheme = () => {
-    if (!currentTheme.mode) return;
-    localStorage.setItem("theme", currentTheme.mode === "dark" ? "light" : "dark");
-    setCurrentTheme(currentTheme.mode === "dark" ? theme.light : theme.dark);
+    if (!theme.mode) return;
+    localStorage.setItem("theme", theme.mode === "dark" ? "light" : "dark");
+    setTheme(theme.mode === "dark" ? customTheme.light : customTheme.dark);
   };
 
   useEffect(() => {
     const currentThemeMode = localStorage.getItem("theme");
     if (currentThemeMode === "dark") {
-      setCurrentTheme(theme.dark);
+      setTheme(customTheme.dark);
     } else {
-      setCurrentTheme(theme.light);
+      setTheme(customTheme.light);
     }
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ currentTheme, toggleTheme }}>
-      <SThemeProvider theme={currentTheme}>{children}</SThemeProvider>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <SThemeProvider theme={theme}>{children}</SThemeProvider>
     </ThemeContext.Provider>
   );
 };

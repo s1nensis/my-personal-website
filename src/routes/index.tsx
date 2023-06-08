@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import Portfolio from "../pages/Portfolio";
 import PersonalStudies from "../pages/PersonalStudies";
 import Navbar from "../components/Navbar";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const RootLayout = () => {
   return (
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/studies",
         element: <PersonalStudies />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
       },
     ],
   },

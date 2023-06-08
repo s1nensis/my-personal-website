@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-//
-
 const GlobalStyles = createGlobalStyle`
   *,
   *::before,
@@ -104,7 +102,7 @@ const GlobalStyles = createGlobalStyle`
     height: 100vh;
     width: 100vw;
     transition: all 0.25s linear;
-
+    background-color: ${({ theme }) => theme.colors.background};
   }
 `;
 
