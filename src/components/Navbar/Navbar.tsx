@@ -1,13 +1,17 @@
-import React from "react";
-import { AppBar, Container, IconButton, Toolbar } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import * as React from "react";
+
+import { AppBar } from "@mui/material";
+import Brightness4 from "@mui/icons-material/Brightness4";
+
+import { useTheme } from "../../contexts/themeContext";
 
 const Navbar: React.FC = () => {
+  const { toggleTheme } = useTheme();
+
   return (
-    <>
-      <Container maxWidth="lg"></Container>
-    </>
+    <AppBar position="static">
+      <Brightness4 onClick={toggleTheme} />
+    </AppBar>
   );
 };
 

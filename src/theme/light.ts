@@ -2,7 +2,7 @@ import { CustomTheme } from "../types/theme";
 
 export const lightTheme: CustomTheme = {
   palette: {
-    mode: "dark",
+    mode: "light",
     primary: {
       main: "#3f51b5",
     },

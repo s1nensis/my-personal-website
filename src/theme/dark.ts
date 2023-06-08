@@ -4,13 +4,13 @@ export const darkTheme: CustomTheme = {
   palette: {
     mode: "dark",
     primary: {
-      main: "#F1F1F1",
+      main: "#7ee787",
     },
     secondary: {
       main: "#f50057",
     },
     background: {
-      default: "#0FF",
+      default: "#0d1117",
     },
   },
 };
