@@ -1,8 +1,8 @@
-import { Global, css } from "@emotion/react";
-import { useTheme, ThemeOptions } from "@mui/material/styles";
-import { CustomTheme } from "../types/theme";
+import { createGlobalStyle } from "styled-components";
 
-export const globalStyles = (theme: CustomTheme & ThemeOptions) => css`
+//
+
+const GlobalStyles = createGlobalStyle`
   *,
   *::before,
   *::after {
@@ -104,16 +104,8 @@ export const globalStyles = (theme: CustomTheme & ThemeOptions) => css`
     height: 100vh;
     width: 100vw;
     transition: all 0.25s linear;
-    background-color: ${theme.palette.background.default};
+
   }
 `;
-
-const GlobalStyles: React.FC = () => {
-  const theme = useTheme();
-
-  console.log(theme);
-
-  return <Global styles={globalStyles(theme)} />;
-};
 
 export default GlobalStyles;

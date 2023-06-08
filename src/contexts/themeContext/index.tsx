@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, useState, useContext, useEffect } from "react";
-import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
-import { theme } from "../../theme";
-import { CustomTheme } from "../../types/theme";
+import { ThemeProvider as SThemeProvider } from "styled-components";
+import { ITheme, theme } from "../../theme";
 
 interface ThemeContextProps {
-  currentTheme: CustomTheme;
+  currentTheme: ITheme;
   toggleTheme: () => void;
 }
 
@@ -19,12 +18,12 @@ const ThemeContext = createContext<ThemeContextProps>({
 });
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState<CustomTheme>(theme.dark);
+  const [currentTheme, setCurrentTheme] = useState<ITheme>(theme.dark);
 
   const toggleTheme = () => {
-    if (!currentTheme.palette) return;
-    localStorage.setItem("theme", currentTheme.palette.mode === "dark" ? "light" : "dark");
-    setCurrentTheme(currentTheme.palette.mode === "dark" ? theme.light : theme.dark);
+    if (!currentTheme.mode) return;
+    localStorage.setItem("theme", currentTheme.mode === "dark" ? "light" : "dark");
+    setCurrentTheme(currentTheme.mode === "dark" ? theme.light : theme.dark);
   };
 
   useEffect(() => {
@@ -38,7 +37,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ currentTheme, toggleTheme }}>
-      <MuiThemeProvider theme={currentTheme}>{children}</MuiThemeProvider>
+      <SThemeProvider theme={currentTheme}>{children}</SThemeProvider>
     </ThemeContext.Provider>
   );
 };

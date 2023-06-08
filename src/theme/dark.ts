@@ -1,16 +1,11 @@
-import { CustomTheme } from "../types/theme";
-
-export const darkTheme: CustomTheme = {
-  palette: {
-    mode: "dark",
+export const darkTheme = {
+  mode: "dark",
+  color: {
+    background: "#0d1117",
     primary: {
-      main: "#7ee787",
-    },
-    secondary: {
-      main: "#f50057",
-    },
-    background: {
-      default: "#0d1117",
+      primary: {
+        main: "#00F",
+      },
     },
   },
 };

@@ -1,16 +1,11 @@
-import { CustomTheme } from "../types/theme";
-
-export const lightTheme: CustomTheme = {
-  palette: {
-    mode: "light",
+export const lightTheme = {
+  mode: "light",
+  color: {
+    background: "#CCC",
     primary: {
-      main: "#3f51b5",
-    },
-    secondary: {
-      main: "#f50057",
-    },
-    background: {
-      default: "#0FF",
+      primary: {
+        main: "#00F",
+      },
     },
   },
 };
