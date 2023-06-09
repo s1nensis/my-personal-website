@@ -1,10 +1,13 @@
-import darkTheme from "./dark";
-import lightTheme from "./light";
+import darkTheme from "./colors/dark";
+import lightTheme from "./colors/light";
+import { spacings, sizes } from "./sizes";
+import { typography } from "./typography";
 
-export type ITheme = typeof lightTheme | typeof darkTheme;
+const themeConfigs = { spacings, sizes, typography };
+export type ITheme = typeof themeConfigs & (typeof lightTheme | typeof darkTheme);
 
-const light = lightTheme;
-const dark = darkTheme;
+const light = { ...lightTheme, ...themeConfigs };
+const dark = { ...darkTheme, ...themeConfigs };
 
 export const theme = {
   light,
