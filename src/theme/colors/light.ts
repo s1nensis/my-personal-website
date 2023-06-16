@@ -1,15 +1,17 @@
-const primary = {
-  primary100: "#E6F6FF",
-  primary200: "#BAE3FF",
-  primary300: "#7CC4FA",
+import cs from "./general";
+
+const background = {
+  main: "#66A3CA",
 };
 
 export const lightTheme = {
   mode: "light",
   colors: {
-    background: "#CCC",
-    ...primary,
-    text: "#000",
+    white: cs.white,
+    black: cs.black,
+    background,
+    ...cs.primary,
+    ...cs.secondary,
   },
 };
 

@@ -11,38 +11,22 @@ const Navbar: React.FC = () => {
 
   const renderThemeIcon = useCallback(() => {
     if (theme.mode === "dark") {
-      return <MdSunny />;
+      return <MdSunny color="red" />;
     }
     return <MdBrightness2 />;
   }, [theme.mode]);
 
-  const navigation = [
-    {
-      label: "Home",
-      key: "/",
-    },
-    {
-      label: "Portfolio",
-      key: "/portfolio",
-    },
-    {
-      label: "Personal Studies",
-      key: "/personal-studies",
-    },
-    {
-      icon: renderThemeIcon(),
-      key: "theme",
-    },
-  ];
-
-  const handleItemClick = ({ key }: any) => {
-    if (key) navigate(key);
-    if (key === "theme") toggleTheme();
-  };
-
   return (
     <>
-      <S.Navbar mode="horizontal" items={navigation} onClick={(item) => handleItemClick(item)} />
+      <S.MainNav>
+        <S.Hamburger />
+        <S.Menu>
+          <S.MenuLink to={"/"}>Home</S.MenuLink>
+          <S.MenuLink to={"/personal-studios"}>Portfolio</S.MenuLink>
+          <S.MenuLink to={"/portfolio"}>Personal Studies</S.MenuLink>
+          <div onClick={toggleTheme}>{renderThemeIcon()}</div>
+        </S.Menu>
+      </S.MainNav>
     </>
   );
 };

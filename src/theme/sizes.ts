@@ -6,12 +6,3 @@ export const spacings = {
   xl: 24,
   xxl: 32,
 };
-
-export const sizes = {
-  xs: 2,
-  sm: 4,
-  md: 8,
-  lg: 12,
-  xl: 16,
-  xxl: 24,
-};

@@ -102,7 +102,8 @@ const GlobalStyles = createGlobalStyle`
     height: 100vh;
     width: 100vw;
     transition: all 0.25s linear;
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.background.main};
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 `;
 

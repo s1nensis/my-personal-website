@@ -1,9 +1,9 @@
 import darkTheme from "./colors/dark";
 import lightTheme from "./colors/light";
-import { spacings, sizes } from "./sizes";
+import { spacings } from "./sizes";
 import { typography } from "./typography";
 
-const themeConfigs = { spacings, sizes, typography };
+const themeConfigs = { spacings, typography };
 export type ITheme = typeof themeConfigs & (typeof lightTheme | typeof darkTheme);
 
 const light = { ...lightTheme, ...themeConfigs };

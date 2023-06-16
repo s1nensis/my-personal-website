@@ -1,15 +1,17 @@
-const primary = {
-  primary100: "#E6F6FF",
-  primary200: "#BAE3FF",
-  primary300: "#7CC4FA",
+import cs from "./general";
+
+const background = {
+  main: "#010609",
 };
 
 export const darkTheme = {
   mode: "dark",
   colors: {
-    background: "#0d1117",
-    ...primary,
-    text: "#FFF",
+    white: cs.white,
+    black: cs.black,
+    background,
+    ...cs.primary,
+    ...cs.secondary,
   },
 };
 
